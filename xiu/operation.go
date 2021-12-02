@@ -22,10 +22,11 @@ func NewXiuExcel(sourceFile string, sourceSheet string, destinationDirectory str
 }
 
 // 读取文件内容
-func (x *XiuExcel) Read() ([][]string, error) {
+func (x *XiuExcel) Read() (*excelize.Cols, error) {
 	log := loglib.GetLog()
 
 	f, err := excelize.OpenFile(x.sourceFile)
+
 	if err != nil {
 		log.WithFields(logrus.Fields{
 			"error": err,
@@ -34,7 +35,8 @@ func (x *XiuExcel) Read() ([][]string, error) {
 		return nil, err
 	}
 
-	rows, err := f.GetRows(x.sourceSheet)
+	cols, err := f.Cols(x.sourceSheet)
+
 	if err != nil {
 		log.WithFields(logrus.Fields{
 			"error": err,
@@ -43,10 +45,10 @@ func (x *XiuExcel) Read() ([][]string, error) {
 		return nil, err
 	}
 
-	return rows, nil
+	return cols, nil
 }
 
 // Write 输出结果文件
-func (x *XiuExcel) Write(contents [][]string) {
+func (x *XiuExcel) Write(*excelize.Cols) {
 
 }

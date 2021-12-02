@@ -5,6 +5,6 @@ log:
   #   path: /var/log/xiuexcel/xiuexcel.log
 
 excel:
-  sourceFile: /Users/sheldon/test_data/分部门利润表模板.xlsx
+  sourceFile: D:\test_data\分部门利润表模板.xlsx
   sourceSheet: Sheet1
   destinationDirectory: /Users/sheldon/excel_file/
