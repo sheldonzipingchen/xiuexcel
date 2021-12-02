@@ -21,31 +21,12 @@ func TestRead(t *testing.T) {
 	destinationDirectory := c.GetString("excel.destinationDirectory")
 
 	xiuExcel := NewXiuExcel(sourceFile, sourceSheet, destinationDirectory)
-	cols, err := xiuExcel.Read()
+	_, err := xiuExcel.Read()
 	if err != nil {
 		log.WithFields(logrus.Fields{
 			"error": err,
 		}).Fatal("read excel file failed.")
 
-	}
-
-	colIndex := 0
-	for cols.Next() {
-		col, err := cols.Rows()
-		if err != nil {
-			log.WithFields(logrus.Fields{
-				"error": err,
-			}).Error("error.")
-		}
-
-		for index, rowCell := range col {
-			log.WithFields(logrus.Fields{
-				"index":   index,
-				"rowCell": rowCell,
-			}).Info("Row Cell Content.")
-		}
-
-		colIndex++
 	}
 
 }
