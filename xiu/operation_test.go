@@ -49,3 +49,14 @@ func TestRead(t *testing.T) {
 	}
 
 }
+
+func TestWrite(t *testing.T) {
+	c := config.GetConfig()
+	sourceFile := c.GetString("excel.sourceFile")
+	sourceSheet := c.GetString("excel.sourceSheet")
+	destinationDirectory := c.GetString("excel.destinationDirectory")
+
+	xiuExcel := NewXiuExcel(sourceFile, sourceSheet, destinationDirectory)
+	cols, _ := xiuExcel.Read()
+	xiuExcel.Write(cols)
+}

@@ -7,4 +7,4 @@ log:
 excel:
   sourceFile: D:\test_data\分部门利润表模板.xlsx
   sourceSheet: Sheet1
-  destinationDirectory: /Users/sheldon/excel_file/
+  destinationDirectory: D:\excel_file\
