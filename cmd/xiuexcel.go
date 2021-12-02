@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"xiuexcel/config"
+	"xiuexcel/loglib"
 )
 
 var (
@@ -26,6 +27,7 @@ func xiuExcelMain() {
 	flag.Parse()
 
 	config.Init(*environment)
+	loglib.Init()
 }
 
 func main() {
