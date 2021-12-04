@@ -16,6 +16,7 @@ func Init(env string) {
 	config.AddConfigPath("../../config/")
 	config.AddConfigPath("config/")
 	config.AddConfigPath("/etc/xiuexcel/")
+	config.AddConfigPath("C:\\")
 	err := config.ReadInConfig()
 	if err != nil {
 		log.Fatalf("error on parseing configuration file, error: %v", err)
